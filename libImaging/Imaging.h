@@ -264,6 +264,7 @@ extern Imaging ImagingFilter(
     FLOAT32 offset, FLOAT32 divisor);
 extern Imaging ImagingFlipLeftRight(Imaging imOut, Imaging imIn);
 extern Imaging ImagingFlipTopBottom(Imaging imOut, Imaging imIn);
+extern Imaging ImagingNlmFilter(Imaging imOut, Imaging imIn, float sigma);
 extern Imaging ImagingGaussianBlur(Imaging imOut, Imaging imIn, float radius,
     int passes);
 extern Imaging ImagingGetBand(Imaging im, int band);

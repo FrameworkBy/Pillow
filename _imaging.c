@@ -886,6 +886,27 @@ _filter(ImagingObject* self, PyObject* args)
     return imOut;
 }
 
+static PyObject*
+_nlm_filter(ImagingObject* self, PyObject* args)
+{
+    Imaging imIn;
+    Imaging imOut;
+
+    float sigma = 0;
+    if (!PyArg_ParseTuple(args, "f", &sigma))
+        return NULL;
+
+    imIn = self->image;
+    imOut = ImagingNew(imIn->mode, imIn->xsize, imIn->ysize);
+    if (!imOut)
+        return NULL;
+
+    if (!ImagingNlmFilter(imOut, imIn, sigma))
+        return NULL;
+
+    return PyImagingNew(imOut);
+}
+
 #ifdef WITH_UNSHARPMASK
 static PyObject*
 _gaussian_blur(ImagingObject* self, PyObject* args)

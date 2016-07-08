@@ -154,6 +154,19 @@ class GaussianBlur(Filter):
 
     def filter(self, image):
         return image.gaussian_blur(self.radius)
+		
+class NlmFilter(Filter):
+    """Non local means denoising filter.
+
+    :param sigma: noise sigma.
+    """
+    name = "NlmFilter"
+
+    def __init__(self, sigma=10):
+        self.sigma = sigma
+
+    def filter(self, image):
+        return image.nlm_filter(self.sigma)
 
 
 class UnsharpMask(Filter):
