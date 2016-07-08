@@ -3033,6 +3033,8 @@ static struct PyMethodDef methods[] = {
     {"putpalette", (PyCFunction)_putpalette, 1},
     {"putpalettealpha", (PyCFunction)_putpalettealpha, 1},
     {"putpalettealphas", (PyCFunction)_putpalettealphas, 1},
+	
+	{"nlm_filter", (PyCFunction)_nlm_filter, 1},
 
 #ifdef WITH_IMAGECHOPS
     /* Channel operations (ImageChops) */
